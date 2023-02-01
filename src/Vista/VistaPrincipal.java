@@ -44,13 +44,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.jMenu1 = jMenu1;
     }*/
 
-    public JToolBar getjToolBar1() {
-        return jToolBar1;
-    }
 
-    public void setjToolBar1(JToolBar jToolBar1) {
-        this.jToolBar1 = jToolBar1;
-    }
 
     public JButton getBtncamion() {
         return btncamion;

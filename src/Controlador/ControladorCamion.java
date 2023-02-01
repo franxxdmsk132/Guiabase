@@ -34,10 +34,10 @@ public class ControladorCamion {
     }
 
     public void abrirDialogCrear() {
-        vista.getjDlgCamion().setName("Crear nuevo camion");
+        vista.getjDlgCamion().setName("Creacion de nuevo camion");
         vista.getjDlgCamion().setLocationRelativeTo(vista);
         vista.getjDlgCamion().setSize(491, 407);
-        vista.getjDlgCamion().setTitle("Crear nuevo camion");
+        vista.getjDlgCamion().setTitle("CREAR NUEVO CAMEON ");
         vista.getjDlgCamion().setVisible(true);
         vista.getTxtplaca().setEditable(true); //Desbloqueo el campo de la placa
         limpiarDatos(); //Limpio el registro
@@ -71,7 +71,7 @@ public class ControladorCamion {
         int seleccion = vista.getTblCamiones().getSelectedRow();
 
         if (seleccion == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "Por favor seleccionar una fila");
         } else {
 
             String placa = vista.getTblCamiones().getValueAt(seleccion, 0).toString();
@@ -79,10 +79,10 @@ public class ControladorCamion {
                 if (pe.getPlaca().equals(placa)) {
 
                     //Abre el jDialog y carga los datos en el jDialog
-                    vista.getjDlgCamion().setName("Editar");
+                    vista.getjDlgCamion().setName("EDITAR");
                     vista.getjDlgCamion().setLocationRelativeTo(vista);
                     vista.getjDlgCamion().setSize(491, 407);
-                    vista.getjDlgCamion().setTitle("Editar");
+                    vista.getjDlgCamion().setTitle("EDITAR");
                     vista.getjDlgCamion().setVisible(true);
                     vista.getTxtplaca().setEditable(false); //Bloqueo el campo
 
@@ -99,7 +99,7 @@ public class ControladorCamion {
 
     public void crearOModificarCamion() {
 
-        if (vista.getjDlgCamion().getName().equals("Crear nuevo camion")) { //CREAR
+        if (vista.getjDlgCamion().getName().equals("Creacion de camion")) { //CREAR
 
             if (modelo.validarRepetidosPlaca(vista.getTxtplaca().getText()) == 0) {
                 if (modelo.validarRepetidosMatricula(vista.getTxtmatricula().getText()) == 0) {
@@ -119,18 +119,18 @@ public class ControladorCamion {
 
                         if (camion.crearCamion()) {
                             vista.getjDlgCamion().setVisible(false);
-                            JOptionPane.showMessageDialog(vista, "Camion Creado Satisfactoriamente");
+                            JOptionPane.showMessageDialog(vista, "Camion ha sido creado correctamente");
                             cargarTabla();
                         } else {
-                            JOptionPane.showMessageDialog(vista, "No se pudo crear el camion");
+                            JOptionPane.showMessageDialog(vista, "Ocurrio un error (camion)");
                         }
                     }
                 } else {
-                    JOptionPane.showMessageDialog(vista, "La matricula ya se encuentra registrada");
+                    JOptionPane.showMessageDialog(vista, "Matricula registrada");
                 }
 
             } else {
-                JOptionPane.showMessageDialog(vista, "La placa ya se encuentra registrada");
+                JOptionPane.showMessageDialog(vista, "Placa registrada");
             }
         } else {//EDITAR 
 
@@ -150,10 +150,10 @@ public class ControladorCamion {
 
                 if (camion.modificarCamion()) {
                     vista.getjDlgCamion().setVisible(false);
-                    JOptionPane.showMessageDialog(vista, "Camion Modificado Satisfactoriamente");
+                    JOptionPane.showMessageDialog(vista, "Camion Modificado correctamente ");
                     cargarTabla();
                 } else {
-                    JOptionPane.showMessageDialog(vista, "No se pudo modificar el camion");
+                    JOptionPane.showMessageDialog(vista, "Error al modificar camion");
                 }
             } 
         }
@@ -205,20 +205,20 @@ public class ControladorCamion {
         int fila = vista.getTblCamiones().getSelectedRow();
 
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "Por favor seleccionar una fila");
         } else {
 
-            int response = JOptionPane.showConfirmDialog(vista, "¿Seguro que desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int response = JOptionPane.showConfirmDialog(vista, "¿Desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
 
                 String placa;
                 placa = vista.getTblCamiones().getValueAt(fila, 0).toString();
 
                 if (modelo.eliminarCamion(placa)) {
-                    JOptionPane.showMessageDialog(null, "El camion fue eliminado exitosamente");
+                    JOptionPane.showMessageDialog(null, "ELIMINADO CORRECTAMENTE ");
                     cargarTabla();//Actualizo la tabla con los datos
                 } else {
-                    JOptionPane.showMessageDialog(null, "Error: El camion no se pudo eliminar");
+                    JOptionPane.showMessageDialog(null, "Error: OCURRIO UN ERROR AL ELIMINAR ");
                 }
             }
         }
@@ -230,40 +230,40 @@ public class ControladorCamion {
         boolean validar = true;
 
         if (vista.getTxtplaca().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese una placa");
+            JOptionPane.showMessageDialog(null, "Ingresar la placa");
             validar = false;
         } else {
             if (!mivalidacion.validarPlaca(vista.getTxtplaca().getText())) {
-                JOptionPane.showMessageDialog(null, "Placa incorrecta");
+                JOptionPane.showMessageDialog(null, "La placa esta incorrecta");
                 validar = false;
             }
         }
 
         if (vista.getTxtmatricula().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese una matricula");
+            JOptionPane.showMessageDialog(null, "Por favor ingresar la matricula");
             validar = false;
         } else {
             if (!mivalidacion.validarMatricula(vista.getTxtmatricula().getText())) {
-                JOptionPane.showMessageDialog(null, "Matricula incorrecta");
+                JOptionPane.showMessageDialog(null, "Error en la matricula");
                 validar = false;
             }
         }
 
         if (vista.getTxtmodelo().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese un modelo");
+            JOptionPane.showMessageDialog(null, "Por favor ingresar un modelo");
             validar = false;
         } else {
             if (!mivalidacion.validarDireccion(vista.getTxtmodelo().getText())) {
-                JOptionPane.showMessageDialog(null, "Modelo incorrecta");
+                JOptionPane.showMessageDialog(null, "Ocurrio un error en el modelo");
                 validar = false;
             }
         }
         if (vista.getTxttipo().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese el tipo");
+            JOptionPane.showMessageDialog(null, "Por favor ingresr el tipo");
             validar = false;
         } else {
             if (!mivalidacion.validarTextoSinEspacio(vista.getTxttipo().getText())) {
-                JOptionPane.showMessageDialog(null, "Tipo incorrecto");
+                JOptionPane.showMessageDialog(null, "Error en el tipo");
                 validar = false;
             }
         }
