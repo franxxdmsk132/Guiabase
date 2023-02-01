@@ -263,7 +263,7 @@ public class ControladorCamion {
             validar = false;
         } else {
             if (!mivalidacion.validarTextoSinEspacio(vista.getTxttipo().getText())) {
-                JOptionPane.showMessageDialog(null, "Error en el tipo");
+                JOptionPane.showMessageDialog(null, "Ocurrio un error en el tipo");
                 validar = false;
             }
         }
