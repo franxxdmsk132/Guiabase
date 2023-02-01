@@ -11,15 +11,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public VistaPrincipal() {
         initComponents();
     }
-
-   /* public JMenuBar getMnuCamioneros() {
-        return MnuCamioneros;
-    }
-
-    public void setMnuCamioneros(JMenuBar MnuCamioneros) {
-        this.MnuCamioneros = MnuCamioneros;
-    }*/
-
     public JButton getBtnCamionero() {
         return btnCamionero;
     }
@@ -35,22 +26,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public void setEscritorio(JDesktopPane escritorio) {
         this.escritorio = escritorio;
     }
-
-    /*public JMenu getjMenu1() {
-        return jMenu1;
-    }
-
-    public void setjMenu1(JMenu jMenu1) {
-        this.jMenu1 = jMenu1;
-    }*/
-
-    /*public JToolBar getjToolBar1() {
-        return jToolBar1;
-    }
-
-    public void setjToolBar1(JToolBar jToolBar1) {
-        this.jToolBar1 = jToolBar1;
-    }*/
 
     public JButton getBtncamion() {
         return btncamion;
@@ -112,6 +87,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btnprovincia = new javax.swing.JButton();
         btncamion = new javax.swing.JButton();
         btnCamionero = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,6 +96,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btnpaquetes.setBackground(new java.awt.Color(102, 102, 102));
         btnpaquetes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/869134.1.png"))); // NOI18N
         btnpaquetes.setText("Paquete");
+        btnpaquetes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnpaquetes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnpaquetes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnpaquetes.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -131,7 +108,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        escritorio.add(btnpaquetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 90, 90));
+        escritorio.add(btnpaquetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 100, 100));
 
         btnconduce.setBackground(new java.awt.Color(102, 102, 102));
         btnconduce.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1582039.1.png"))); // NOI18N
@@ -140,7 +117,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btnconduce.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnconduce.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnconduce.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        escritorio.add(btnconduce, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 80, 90));
+        btnconduce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnconduceActionPerformed(evt);
+            }
+        });
+        escritorio.add(btnconduce, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 100, 100));
 
         btndestinatario.setBackground(new java.awt.Color(102, 102, 102));
         btndestinatario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1514134.1.png"))); // NOI18N
@@ -149,7 +131,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btndestinatario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btndestinatario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btndestinatario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        escritorio.add(btndestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 90, 90));
+        escritorio.add(btndestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 110, 100));
 
         btnCliente.setBackground(new java.awt.Color(102, 102, 102));
         btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/57117.1.png"))); // NOI18N
@@ -158,7 +140,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btnCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        escritorio.add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 80, 80));
+        escritorio.add(btnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 100, 100));
 
         btnprovincia.setBackground(new java.awt.Color(102, 102, 102));
         btnprovincia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/2970119.1.png"))); // NOI18N
@@ -167,7 +149,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btnprovincia.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnprovincia.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnprovincia.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        escritorio.add(btnprovincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 100, 90));
+        escritorio.add(btnprovincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 100, 100));
 
         btncamion.setBackground(new java.awt.Color(102, 102, 102));
         btncamion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/240_F_329598014_GY8XKn9Qfgt90oprNZr6tkmgeMocDEIK.1.jpg"))); // NOI18N
@@ -176,7 +158,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btncamion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btncamion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btncamion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        escritorio.add(btncamion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 90, 90));
+        escritorio.add(btncamion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 100, 100));
 
         btnCamionero.setBackground(new java.awt.Color(102, 102, 102));
         btnCamionero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/240_F_144857936_YnamdZNvaKofxs9vmvJlyEao4Ai2EuJd.1.jpg"))); // NOI18N
@@ -185,16 +167,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btnCamionero.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCamionero.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCamionero.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        escritorio.add(btnCamionero, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 100, 90));
+        escritorio.add(btnCamionero, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 110, 100));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("INICIO");
+        escritorio.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,6 +192,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnpaquetesAncestorAdded
 
+    private void btnconduceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconduceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnconduceActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCamionero;
@@ -218,5 +206,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnpaquetes;
     private javax.swing.JButton btnprovincia;
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
