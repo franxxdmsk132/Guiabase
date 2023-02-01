@@ -6,8 +6,8 @@ package Controlador;
 
 /**
  *
- * @author HP
+ * @author frank
  */
-public class Conexion {
-  
+public class ctrl_Camion {
+    
 }
