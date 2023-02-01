@@ -1,4 +1,4 @@
-package Guia_Practica;
+package Modelo;
 
 import Controlador.ControladorPrincipal;
 import Vista.VistaPrincipal;
