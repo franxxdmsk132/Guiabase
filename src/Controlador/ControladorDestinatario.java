@@ -39,10 +39,10 @@ public class ControladorDestinatario {
     }
 
     public void abrirDialogCrear() {
-        vista.getjDlgDestinatarios().setName("Crear nuevo destinatario");
+        vista.getjDlgDestinatarios().setName("Creacion nuevo destinatario");
         vista.getjDlgDestinatarios().setLocationRelativeTo(vista);
         vista.getjDlgDestinatarios().setSize(945, 796);
-        vista.getjDlgDestinatarios().setTitle("Crear nueva persona");
+        vista.getjDlgDestinatarios().setTitle("CREACION DE UNA PERSONA NUEVA");
         vista.getjDlgDestinatarios().setVisible(true);
         vista.getTxtdni().setEditable(true); //Desbloqueo el campo de la cedula
         limpiarDatos(); //Limpia la informacion de los campos
@@ -184,17 +184,17 @@ public class ControladorDestinatario {
 
                     if (destinatario.crearDestinatario()) {
                         vista.getjDlgDestinatarios().setVisible(false);
-                        JOptionPane.showMessageDialog(vista, "Persona Creada Satisfactoriamente");
+                        JOptionPane.showMessageDialog(vista, "LA PERSONA FUE CREADA DE MANERA CORRECDTA");
                         cargarTabla();
                     } else {
-                        JOptionPane.showMessageDialog(vista, "No se pudo crear la persona");
+                        JOptionPane.showMessageDialog(vista, "HUBO UN ERROR EN LA CREACION DE PERSONA");
                     }
                 } else {
 
-                    JOptionPane.showMessageDialog(vista, "Faltan campos por llenar o estan llenados de forma incorrecta");
+                    JOptionPane.showMessageDialog(vista, "EXISTEN CAMPOS SIN LLENAR O LLENADOS DE MANERA INCORRECTA ");
                 }
             } else {
-                JOptionPane.showMessageDialog(vista, "El numero de cédula ya se encuentra registrado");
+                JOptionPane.showMessageDialog(vista, "EL NUMERO DE CEDILA YA ESTA EN USO");
             }
 
         } else {//EDITAR 
@@ -249,13 +249,13 @@ public class ControladorDestinatario {
                 if (destinatario.modificarPersonaYDestinatario()) {
 
                     vista.getjDlgDestinatarios().setVisible(false);
-                    JOptionPane.showMessageDialog(vista, "Persona Modificada Satisfactoriamente");
+                    JOptionPane.showMessageDialog(vista, "PERSONA ACTUALIZADA CORRECTAMENTE");
                     cargarTabla();
                 } else {
-                    JOptionPane.showMessageDialog(vista, "No se pudo modificar la persona");
+                    JOptionPane.showMessageDialog(vista, "ERROR EN LA CTUALIZACION DE PERSONA");
                 }
             } else {
-                JOptionPane.showMessageDialog(vista, "Faltan campos por llenar o estan llenados de forma incorrecta");
+                JOptionPane.showMessageDialog(vista, "CAMPOS VACIOS O LLENADOS DE MANERA INCORRECTA");
             }
         }
     }
@@ -265,20 +265,20 @@ public class ControladorDestinatario {
         int fila = vista.getTabladestinatarios().getSelectedRow();
 
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "AUN NO SE A SELECCIONADO UN ELEMENTO");
         } else {
 
-            int response = JOptionPane.showConfirmDialog(vista, "¿Seguro que desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int response = JOptionPane.showConfirmDialog(vista, "¿DESEA ELIMINAR LA INFORMACION SELECCIONADA?", "CONFIRMAR", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
 
                 String cedula;
                 cedula = vista.getTabladestinatarios().getValueAt(fila, 0).toString();
 
                 if (modelo.eliminarDestinatario(cedula)) {
-                    JOptionPane.showMessageDialog(null, "La persona fue eliminada exitosamente");
+                    JOptionPane.showMessageDialog(null, "SE ELIMINO A LA PERSONA DE MANERA CORRECTA");
                     cargarTabla();//Actualizo la tabla con los datos
                 } else {
-                    JOptionPane.showMessageDialog(null, "Error: La persona no se pudo eliminar");
+                    JOptionPane.showMessageDialog(null, "ERROR EN LA ELIMINACION DE PERSONAr");
                 }
             }
         }
@@ -338,122 +338,122 @@ public class ControladorDestinatario {
             validar = false;
         }*/
         if (vista.getTxtprinombre().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese el primer nombre");
+            JOptionPane.showMessageDialog(null, "INGRESO DEL PRIMER NOMBRE");
             validar = false;
         } else {
             if (!mivalidacion.validarTextoSinEspacio(vista.getTxtprinombre().getText())) {
-                JOptionPane.showMessageDialog(null, "Primer nombre incorrecto");
+                JOptionPane.showMessageDialog(null, "NOMBRE INGRESADO DE MANERA ERRONEA");
                 validar = false;
             }
         }
 
         if (vista.getTxtsegnombre().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese el segundo nombre");
+            JOptionPane.showMessageDialog(null, "INGRESO DEL SEGUNDO NOMBRE");
             validar = false;
         } else {
             if (!mivalidacion.validarTextoSinEspacio(vista.getTxtsegnombre().getText())) {
-                JOptionPane.showMessageDialog(null, "Segundo nombre incorrecto");
+                JOptionPane.showMessageDialog(null, "NOMBRE INGRESADO DE MANERA ERRONEA");
                 validar = false;
             }
         }
 
         if (vista.getTxtpriapellido().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese el primer apellido");
+            JOptionPane.showMessageDialog(null, "INGRESO DEL APELLIDO PATERNO");
             validar = false;
         } else {
             if (!mivalidacion.validarTextoSinEspacio(vista.getTxtpriapellido().getText())) {
-                JOptionPane.showMessageDialog(null, "Primer apellido incorrecto");
+                JOptionPane.showMessageDialog(null, "APELLIDO PATERNO INGRESADO DE MANERA ERRONEA");
                 validar = false;
             }
         }
 
         if (vista.getTxtsegapellido().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese el segundo apellido");
+            JOptionPane.showMessageDialog(null, "INGRESO DE APELLIDO MATERNO");
             validar = false;
         } else {
             if (!mivalidacion.validarTextoSinEspacio(vista.getTxtsegapellido().getText())) {
-                JOptionPane.showMessageDialog(null, "Segundo apellido incorrecto");
+                JOptionPane.showMessageDialog(null, "APELLIDO MATERNO INGRESADO DE MANERA ERRONEA");
                 validar = false;
             }
         }
 
         if (vista.getTxtdireccion().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese la direccion");
+            JOptionPane.showMessageDialog(null, "INGRESO DE DOMICILIO(DIRECCION)");
             validar = false;
         } else {
             if (!mivalidacion.validarDireccion(vista.getTxtdireccion().getText())) {
-                JOptionPane.showMessageDialog(null, "Direccion incorrecta");
+                JOptionPane.showMessageDialog(null, "DOMICILIO INCORRECTO");
                 validar = false;
             }
         }
 
         if (vista.getTxttelefono().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese el numero de telefono");
+            JOptionPane.showMessageDialog(null, "INGRESO DE NUMERO TELEFONICO");
             validar = false;
         } else {
             if (!mivalidacion.validarTelefono(vista.getTxttelefono().getText())) {
-                JOptionPane.showMessageDialog(null, "Telefono incorrecto");
+                JOptionPane.showMessageDialog(null, "NUMERO TELEFONICO INVALIDO");
                 validar = false;
             }
         }
 
         if (vista.getTxtemail().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese el correo");
+            JOptionPane.showMessageDialog(null, "INGRESO DE SU CORREO ELECTRONICO");
             validar = false;
         } else {
             if (!mivalidacion.validarCorreo(vista.getTxtemail().getText())) {
-                JOptionPane.showMessageDialog(null, "Correo incorrecto");
+                JOptionPane.showMessageDialog(null, "CORREO ELECTRONICO INVALIDO");
                 validar = false;
             }
         }
 
         if (vista.getTxtcodpostal().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese el codigo postal");
+            JOptionPane.showMessageDialog(null, "IGRESO DE CODIGO POSTAL");
             validar = false;
         } else {
             if (!mivalidacion.validarCodigoPostal(vista.getTxtcodpostal().getText())) {
-                JOptionPane.showMessageDialog(null, "Codigo Postal incorrecto");
+                JOptionPane.showMessageDialog(null, "CODIGO POSTAL INCORRECTO");
                 validar = false;
             }
         }
 
         if (vista.getTxtArea().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese el area");
+            JOptionPane.showMessageDialog(null, "IGRESO DE AREA");
             validar = false;
         } else {
             if (!mivalidacion.validarTextoConEspacio(vista.getTxtArea().getText())) {
-                JOptionPane.showMessageDialog(null, "Area incorrecta");
+                JOptionPane.showMessageDialog(null, "AREA INVALIDA");
                 validar = false;
             }
         }
 
         if (vista.getTxtcalleprinc().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese la calle principal");
+            JOptionPane.showMessageDialog(null, "INGRESO DE CALLE PRINCIPAL");
             validar = false;
         } else {
             if (!mivalidacion.validarDireccion(vista.getTxtcalleprinc().getText())) {
-                JOptionPane.showMessageDialog(null, "Calle principal incorrecta");
+                JOptionPane.showMessageDialog(null, "HUBO UN ERROR EN EL INGRESO DE CALLE PRINCIPAL");
                 validar = false;
             }
         }
 
         if (vista.getTxtcallesecun().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese la calle secundaria");
+            JOptionPane.showMessageDialog(null, "INGRESO DE CALLE SECUNDARIA");
             validar = false;
         } else {
             if (!mivalidacion.validarDireccion(vista.getTxtcallesecun().getText())) {
-                JOptionPane.showMessageDialog(null, "Calle secundaria incorrecta");
+                JOptionPane.showMessageDialog(null, "ERROR EN EL REGISTRO DE CALLE SECUNDARIA");
                 validar = false;
             }
         }
 
         if (vista.getJfechanacimiento().getDate() == null) {
-            JOptionPane.showMessageDialog(null, "Ingrese la fecha");
+            JOptionPane.showMessageDialog(null, "INGRESO DE LA FECHA");
             validar = false;
         }
 
         if (vista.getMasculino() == null && vista.getFemenino() == null) {
-             JOptionPane.showMessageDialog(null, "Seleccione el genero");
+             JOptionPane.showMessageDialog(null, "SELECCIONA TU GENERO");
             validar = false;
         }
 

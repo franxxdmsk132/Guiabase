@@ -34,10 +34,10 @@ public class ControladorCamion {
     }
 
     public void abrirDialogCrear() {
-        vista.getjDlgCamion().setName("Creacion de nuevo camion");
+        vista.getjDlgCamion().setName("Creacion de nuevo camión");
         vista.getjDlgCamion().setLocationRelativeTo(vista);
         vista.getjDlgCamion().setSize(491, 407);
-        vista.getjDlgCamion().setTitle("CREAR NUEVO CAMEON ");
+        vista.getjDlgCamion().setTitle("CREAR NUEVO CAMIÓN ");
         vista.getjDlgCamion().setVisible(true);
         vista.getTxtplaca().setEditable(true); //Desbloqueo el campo de la placa
         limpiarDatos(); //Limpio el registro
@@ -71,7 +71,7 @@ public class ControladorCamion {
         int seleccion = vista.getTblCamiones().getSelectedRow();
 
         if (seleccion == -1) {
-            JOptionPane.showMessageDialog(null, "Por favor seleccionar una fila");
+            JOptionPane.showMessageDialog(null, "Por favor: Seleccionar una fila");
         } else {
 
             String placa = vista.getTblCamiones().getValueAt(seleccion, 0).toString();
@@ -153,7 +153,7 @@ public class ControladorCamion {
                     JOptionPane.showMessageDialog(vista, "Camion Modificado correctamente ");
                     cargarTabla();
                 } else {
-                    JOptionPane.showMessageDialog(vista, "Error al modificar camion");
+                    JOptionPane.showMessageDialog(vista, "Error: Al modificar camion");
                 }
             } 
         }
@@ -205,7 +205,7 @@ public class ControladorCamion {
         int fila = vista.getTblCamiones().getSelectedRow();
 
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Por favor seleccionar una fila");
+            JOptionPane.showMessageDialog(null, "Por favor: Seleccionar una fila");
         } else {
 
             int response = JOptionPane.showConfirmDialog(vista, "¿Desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -240,17 +240,17 @@ public class ControladorCamion {
         }
 
         if (vista.getTxtmatricula().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor ingresar la matricula");
+            JOptionPane.showMessageDialog(null, "Por favor: Ingresar la matricula");
             validar = false;
         } else {
             if (!mivalidacion.validarMatricula(vista.getTxtmatricula().getText())) {
-                JOptionPane.showMessageDialog(null, "Error en la matricula");
+                JOptionPane.showMessageDialog(null, "Error: En la matricula");
                 validar = false;
             }
         }
 
         if (vista.getTxtmodelo().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor ingresar un modelo");
+            JOptionPane.showMessageDialog(null, "Por favor: Ingresar un modelo");
             validar = false;
         } else {
             if (!mivalidacion.validarDireccion(vista.getTxtmodelo().getText())) {
@@ -259,7 +259,7 @@ public class ControladorCamion {
             }
         }
         if (vista.getTxttipo().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor ingresr el tipo");
+            JOptionPane.showMessageDialog(null, "Por favor: Ingresar el tipo");
             validar = false;
         } else {
             if (!mivalidacion.validarTextoSinEspacio(vista.getTxttipo().getText())) {

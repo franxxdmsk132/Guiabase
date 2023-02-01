@@ -129,7 +129,7 @@ public class ControladorPaquete {
         int seleccion = vista.getTablapaquetes().getSelectedRow();
 
         if (seleccion == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "NO SE A SELECCIONADO NINGUN ELEMENTO");
         } else {
 
             int codigo = Integer.parseInt(vista.getTablapaquetes().getValueAt(seleccion, 0).toString());
@@ -293,14 +293,14 @@ public class ControladorPaquete {
 
                 if (paquete.modificarPaquete()) {
                     vista.getjDlgPaquetes().setVisible(false);
-                    JOptionPane.showMessageDialog(vista, "Se modifico exitosamente el envio del paquete");
+                    JOptionPane.showMessageDialog(vista, "EL PAQUETE FUE ALTERADO EXITOSAMENTE");
                     cargarTablaPaquetes();
                 } else {
-                    JOptionPane.showMessageDialog(vista, "No se pudo modificar el paquete");
+                    JOptionPane.showMessageDialog(vista, "ERROR EN MODIFICACION DE PAQUETE");
                 }
 
             } else {
-                JOptionPane.showMessageDialog(vista, "Faltan campos por llenar o estan llenados de forma incorrecta");
+                JOptionPane.showMessageDialog(vista, "CAMPOS VACIOS O LLENADOS DE MANERA INCORRECTA ");
             }
 
         }
@@ -401,7 +401,7 @@ public class ControladorPaquete {
         int fila = vista.getTbldestinatarios().getSelectedRow();
 
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "NINGUN ELEMENTO SELECCIONADO");
         } else {
 
             String codigo;
@@ -459,7 +459,7 @@ public class ControladorPaquete {
         int fila = vista.getTblcamioneros().getSelectedRow();
 
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "NINGUN ELEMENTO SELCCIONADO");
         } else {
 
             String codigo;
@@ -515,7 +515,7 @@ public class ControladorPaquete {
         int fila = vista.getJtblaProvinciasjDlg().getSelectedRow();
 
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "NINGUN ELEMENTO SELCCIONADO");
         } else {
 
             String codigo;

@@ -41,10 +41,10 @@ public class ControladorCliente {
     }
 
     public void abrirDialogCrear() {
-        vista.getjDlgClientes().setName("Crear nueva persona");
+        vista.getjDlgClientes().setName("Creacion de nueva persona ");
         vista.getjDlgClientes().setLocationRelativeTo(vista);
         vista.getjDlgClientes().setSize(1000, 748);
-        vista.getjDlgClientes().setTitle("Crear nueva persona");
+        vista.getjDlgClientes().setTitle("CREAR NUEVA PERSONA");
         vista.getjDlgClientes().setVisible(true);
         vista.getTxtdni().setEditable(true); //Desbloqueo el campo de la cedula
         limpiarDatos(); //Limpia la informacion de los campos
@@ -80,7 +80,7 @@ public class ControladorCliente {
         int seleccion = vista.getTablaclientes().getSelectedRow();
 
         if (seleccion == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "POR FAVOR: Seleccionar una fila");
         } else {
 
             String cedula = vista.getTablaclientes().getValueAt(seleccion, 0).toString();
@@ -132,7 +132,7 @@ public class ControladorCliente {
 
         Modelo_Persona mipersona = new Modelo_Persona();
 
-        if (vista.getjDlgClientes().getName().equals("Crear nueva persona")) { //CREAR
+        if (vista.getjDlgClientes().getName().equals("Creacion de nueva persona")) { //CREAR
 
             if (mipersona.validarRepetidos(vista.getTxtdni().getText()) == 0) {
                 if (validacionDeDatos()) {
@@ -180,14 +180,14 @@ public class ControladorCliente {
 
                     if (cliente.crearCliente()) {
                         vista.getjDlgClientes().setVisible(false);
-                        JOptionPane.showMessageDialog(vista, "Persona Creada Satisfactoriamente");
+                        JOptionPane.showMessageDialog(vista, "Persona Creada correctamente");
                         cargarTabla();
                     } else {
-                        JOptionPane.showMessageDialog(vista, "No se pudo crear la persona");
+                        JOptionPane.showMessageDialog(vista, "ERROR: Al crear a la persona");
                     }
                 }
             } else {
-                JOptionPane.showMessageDialog(vista, "El numero de cedula ya se encuentra registrado");
+                JOptionPane.showMessageDialog(vista, "Cedula ya registrada");
             }
 
         } else {//EDITAR 
@@ -237,13 +237,13 @@ public class ControladorCliente {
                 if (cliente.modificarPersonaYCliente()) {
 
                     vista.getjDlgClientes().setVisible(false);
-                    JOptionPane.showMessageDialog(vista, "Persona Modificada Satisfactoriamente");
+                    JOptionPane.showMessageDialog(vista, "Persona Modificada correctamente ");
                     cargarTabla();
                 } else {
-                    JOptionPane.showMessageDialog(vista, "No se pudo modificar la persona");
+                    JOptionPane.showMessageDialog(vista, "ERROR: Al modificar la persona");
                 }
             } else {
-                JOptionPane.showMessageDialog(vista, "Faltan campos por llenar o estan llenados de forma incorrecta");
+                JOptionPane.showMessageDialog(vista, "Se encuentran campos vacios o falta completar");
             }
         }
     }
@@ -256,14 +256,14 @@ public class ControladorCliente {
             JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
         } else {
 
-            int response = JOptionPane.showConfirmDialog(vista, "¿Seguro que desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int response = JOptionPane.showConfirmDialog(vista, "¿Desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
 
                 String cedula;
                 cedula = vista.getTablaclientes().getValueAt(fila, 0).toString();
 
                 if (modelo.eliminarCliente(cedula)) {
-                    JOptionPane.showMessageDialog(null, "La persona fue eliminada exitosamente");
+                    JOptionPane.showMessageDialog(null, "La persona fue eliminada Correctamente");
                     cargarTabla();//Actualizo la tabla con los datos
                 } else {
                     JOptionPane.showMessageDialog(null, "Error: La persona no se pudo eliminar");

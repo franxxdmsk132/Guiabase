@@ -68,7 +68,7 @@ public class ControladorProvincia {
         int seleccion = vista.getTblprovincias().getSelectedRow();
 
         if (seleccion == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "NO SE A SELECCIONADO NINGUN ELEMENTO");
         } else {
 
             String codigo = vista.getTblprovincias().getValueAt(seleccion, 0).toString();
@@ -114,15 +114,15 @@ public class ControladorProvincia {
 
                     if (provincia.crearProvincia()) {
                         vista.getjDlgprovincias().setVisible(false);
-                        JOptionPane.showMessageDialog(vista, "Provincia Creada Satisfactoriamente");
+                        JOptionPane.showMessageDialog(vista, "LA CREACION DE PROVINCIA SE REALIZO CON EXITO");
                         cargarTabla();
                     } else {
-                        JOptionPane.showMessageDialog(vista, "No se pudo crear la provincia");
+                        JOptionPane.showMessageDialog(vista, "ERROR EN LA CREACION DE PROVINCIA");
                     }
                 }
 
             } else {
-                JOptionPane.showMessageDialog(vista, "La provincia ya se encuentra registrada");
+                JOptionPane.showMessageDialog(vista, "PROVINCIA YA REGISTRADA");
             }
         } else {//EDITAR 
 
@@ -141,13 +141,13 @@ public class ControladorProvincia {
 
                 if (provincia.modificarProvincia()) {
                     vista.getjDlgprovincias().setVisible(false);
-                    JOptionPane.showMessageDialog(vista, "Provincia Modificada Satisfactoriamente");
+                    JOptionPane.showMessageDialog(vista, "SE MODIFICO PROVINCIA SIN NINGUN ERROR");
                     cargarTabla();
                 } else {
-                    JOptionPane.showMessageDialog(vista, "Error: No se pudo modificar la provincia");
+                    JOptionPane.showMessageDialog(vista, "ERROR AL MODIFICAR PROVINCIA");
                 }
             } else {
-                JOptionPane.showMessageDialog(vista, "Faltan campos por llenar o estan llenados de forma incorrecta");
+                JOptionPane.showMessageDialog(vista, "CAMPOS VACIOS O LLENADOS DE MANERA INCORRECTA");
             }
 
         }
@@ -198,20 +198,20 @@ public class ControladorProvincia {
         int fila = vista.getTblprovincias().getSelectedRow();
 
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "NO SE A SELECCIONADO NINGUN ELEMENTO");
         } else {
 
-            int response = JOptionPane.showConfirmDialog(vista, "¿Seguro que desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int response = JOptionPane.showConfirmDialog(vista, "¿DESEA ELIMINAR LA INFORMACION SELECCIONADA?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
 
                 int codigo;
                 codigo = Integer.parseInt(vista.getTblprovincias().getValueAt(fila, 0).toString());
 
                 if (modelo.eliminarProvincia(codigo)) {
-                    JOptionPane.showMessageDialog(null, "La provincia fue eliminada exitosamente");
+                    JOptionPane.showMessageDialog(null, "PROVINCIA ELIMINADA");
                     cargarTabla();//Actualizo la tabla con los datos
                 } else {
-                    JOptionPane.showMessageDialog(null, "Error: La provincia no se pudo eliminar");
+                    JOptionPane.showMessageDialog(null, "ERROR AL ELIMINAR PROVINCIA");
                 }
             }
         }
@@ -223,21 +223,21 @@ public class ControladorProvincia {
         boolean validar = true;
 
         if (vista.getTxtnombre().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese el nombre");
+            JOptionPane.showMessageDialog(null, "INGRESE NOMBRE");
             validar = false;
         } else {
             if (!mivalidacion.validarTextoConEspacio(vista.getTxtnombre().getText())) {
-                JOptionPane.showMessageDialog(null, "Nombre incorrecto");
+                JOptionPane.showMessageDialog(null, "NOMBRE ERRONEO");
                 validar = false;
             }
         }
 
         if (vista.getTxtregion().getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese la region");
+            JOptionPane.showMessageDialog(null, "INGRESE REGION");
             validar = false;
         } else {
             if (!mivalidacion.validarTextoSinEspacio(vista.getTxtregion().getText())) {
-                JOptionPane.showMessageDialog(null, "Region incorrecta");
+                JOptionPane.showMessageDialog(null, "REGION ERRONEA");
                 validar = false;
             }
         }

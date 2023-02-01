@@ -41,10 +41,10 @@ public class ControladorCamionero {
     }
 
     public void abrirDialogCrear() {
-        vista.getjDlgCamionero().setName("Crear nueva persona");
+        vista.getjDlgCamionero().setName("CREACIÓN DE UNA NUEVA PERSONA");
         vista.getjDlgCamionero().setLocationRelativeTo(vista);
         vista.getjDlgCamionero().setSize(1049, 740);
-        vista.getjDlgCamionero().setTitle("Crear nueva persona");
+        vista.getjDlgCamionero().setTitle("CREAR NUEVA PERSONA");
         vista.getjDlgCamionero().setVisible(true);
         vista.getTxtdni().setEditable(true); //Desbloqueo el campo de la cedula
         limpiarDatos(); //Limpia la informacion de los campos
@@ -90,7 +90,7 @@ public class ControladorCamionero {
         int seleccion = vista.getTablacamioneros().getSelectedRow();
 
         if (seleccion == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "Por favor: Seleccionar una fila");
         } else {
 
             String cedula = vista.getTablacamioneros().getValueAt(seleccion, 0).toString();
@@ -145,7 +145,7 @@ public class ControladorCamionero {
 
         Modelo_Persona mipersona = new Modelo_Persona();
 
-        if (vista.getjDlgCamionero().getName().equals("Crear nueva persona")) { //CREAR
+        if (vista.getjDlgCamionero().getName().equals("Creacion de nueva persona")) { //CREAR
 
             if (mipersona.validarRepetidos(vista.getTxtdni().getText()) == 0) {
                 if (validacionDeDatos()) {
@@ -194,14 +194,14 @@ public class ControladorCamionero {
 
                     if (camionero.crearCamionero()) {
                         vista.getjDlgCamionero().setVisible(false);
-                        JOptionPane.showMessageDialog(vista, "Persona Creada Satisfactoriamente");
+                        JOptionPane.showMessageDialog(vista, "La persona ha sido creada correctamente ");
                         cargarTabla();
                     } else {
-                        JOptionPane.showMessageDialog(vista, "No se pudo crear la persona");
+                        JOptionPane.showMessageDialog(vista, "ERROR :Al crear a la persona");
                     }
                 }
             } else {
-                JOptionPane.showMessageDialog(vista, "El numero de cedula ya se encuentra registrado");
+                JOptionPane.showMessageDialog(vista, "Cedula ya registrada");
             }
 
         } else {//EDITAR 
@@ -252,10 +252,10 @@ public class ControladorCamionero {
                 if (camionero.modificarPersonaYCamionero()) {
 
                     vista.getjDlgCamionero().setVisible(false);
-                    JOptionPane.showMessageDialog(vista, "Persona Modificada Satisfactoriamente");
+                    JOptionPane.showMessageDialog(vista, "Moficacion de persona exitosa");
                     cargarTabla();
                 } else {
-                    JOptionPane.showMessageDialog(vista, "No se pudo modificar la persona");
+                    JOptionPane.showMessageDialog(vista, "ERROR: Al modificar a la persona");
                 }
             }
         }
@@ -266,17 +266,17 @@ public class ControladorCamionero {
         int fila = vista.getTablacamioneros().getSelectedRow();
 
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "Por favor: Seleccionar una persona");
         } else {
 
-            int response = JOptionPane.showConfirmDialog(vista, "¿Seguro que desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int response = JOptionPane.showConfirmDialog(vista, "¿Desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
 
                 String cedula;
                 cedula = vista.getTablacamioneros().getValueAt(fila, 0).toString();
 
                 if (modelo.eliminarCamionero(cedula)) {
-                    JOptionPane.showMessageDialog(null, "La persona fue eliminada exitosamente");
+                    JOptionPane.showMessageDialog(null, " Persona  eliminada correctamente");
                     cargarTabla();//Actualizo la tabla con los datos
                 } else {
                     JOptionPane.showMessageDialog(null, "Error: La persona no se pudo eliminar");

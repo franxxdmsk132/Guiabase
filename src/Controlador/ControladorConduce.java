@@ -47,10 +47,10 @@ public class ControladorConduce {
     }
 
     public void abrirDialogCrear() {
-        vista.getjDlgConduce().setName("Crear nueva conduccion");
+        vista.getjDlgConduce().setName("Creacion del nuevo conductor");
         vista.getjDlgConduce().setLocationRelativeTo(vista);
         vista.getjDlgConduce().setSize(960, 527);
-        vista.getjDlgConduce().setTitle("Crear nueva conduccion");
+        vista.getjDlgConduce().setTitle("CREAR NUEVO CONDUCTOR");
         vista.getjDlgConduce().setVisible(true);
         limpiarDatosYDespacerCampos();
     }
@@ -101,7 +101,7 @@ public class ControladorConduce {
         int seleccion = vista.getTablaconduccion().getSelectedRow();
 
         if (seleccion == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "POR FAVOR: Seleccionar una fila");
         } else {
 
             int codigo = Integer.parseInt(vista.getTablaconduccion().getValueAt(seleccion, 0).toString());
@@ -157,7 +157,7 @@ public class ControladorConduce {
     public void abrirjDialogCamionero() {
         vista.getjDlgConduceCamionero().setLocationRelativeTo(vista);
         vista.getjDlgConduceCamionero().setSize(565, 324);
-        vista.getjDlgConduceCamionero().setTitle("Seleccionar camionero");
+        vista.getjDlgConduceCamionero().setTitle("Seleccionar un camionero");
         vista.getjDlgConduceCamionero().setVisible(true);
         cargarDatosDelCamionero();
     }
@@ -190,7 +190,7 @@ public class ControladorConduce {
         int fila = vista.getTblcamionerosDlg().getSelectedRow();
 
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "ERROR: Debe seleccionar una fila");
         } else {
 
             String codigo;
@@ -247,7 +247,7 @@ public class ControladorConduce {
         int fila = vista.getTblcamionesDlg().getSelectedRow();
 
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "ERROR: Seleccionar una fila");
         } else {
 
             String codigo;
@@ -265,7 +265,7 @@ public class ControladorConduce {
 
     public void crearOModificarConduccion() {
 
-        if (vista.getjDlgConduce().getName().equals("Crear nueva conduccion")) { //CREAR
+        if (vista.getjDlgConduce().getName().equals("Crear un nuevo conductor")) { //CREAR
 
             if (validarDatos()) {
 
@@ -332,17 +332,17 @@ public class ControladorConduce {
         int fila = vista.getTablaconduccion().getSelectedRow();
 
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+            JOptionPane.showMessageDialog(null, "ERROR:Seleccionar una fila");
         } else {
 
-            int response = JOptionPane.showConfirmDialog(vista, "¿Seguro que desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int response = JOptionPane.showConfirmDialog(vista, "¿Desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
 
                 int codigo;
                 codigo = Integer.parseInt(vista.getTablaconduccion().getValueAt(fila, 0).toString());
 
                 if (modelo.eliminarConduce(codigo)) {
-                    JOptionPane.showMessageDialog(null, "Los registros fueron eliminados exitosamente");
+                    JOptionPane.showMessageDialog(null, "Los registros fueron eliminados correctamente");
                     cargarTablaTurnosDeConduccion();//Actualizo la tabla con los datos
                 } else {
                     JOptionPane.showMessageDialog(null, "Error: No se pudo eliminar los registros");
