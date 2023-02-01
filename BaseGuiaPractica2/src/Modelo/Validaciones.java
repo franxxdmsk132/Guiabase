@@ -8,6 +8,7 @@ public class Validaciones {
     public boolean ValidarCedula (String cedula){
         boolean validar = false;
         if(cedula.matches("\\d{10}")){
+            //58448461
             int d1 = Integer.parseInt(cedula.substring(0,1));
             int d2 = Integer.parseInt(cedula.substring(1,2));
             int d3 = Integer.parseInt(cedula.substring(2,3));
