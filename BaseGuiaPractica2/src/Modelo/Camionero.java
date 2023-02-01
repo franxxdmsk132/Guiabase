@@ -7,7 +7,7 @@ package Modelo;
 
 /**
  *
- 
+ * @author User
  */
 public class Camionero extends Persona{
     
@@ -28,13 +28,19 @@ public class Camionero extends Persona{
         this.estado = estado;
     }
 
-    public Camionero(int cam_cod, double sueldo, String tipolic, int aniosexperiencia, String estado, int per_cod, String per_cd, String per_nombre1, String per_nombre2, String per_apellido1, String per_apellido2, String per_dir, String per_tel, String per_email, String per_gen) {
-        super(per_cod, per_cd, per_nombre1, per_nombre2, per_apellido1, per_apellido2, per_dir, per_tel, per_email, per_gen);
+   
+
+    public Camionero(int cam_cod, double sueldo, String tipolic, int aniosexperiencia, String estado, int per_cod, String per_cd, String per_nombre1, String per_nombre2, String per_apellido1, String per_apellido2, String per_dir, String per_tel, String per_email, String fechanac, int edad, String per_gen) {
+        super(per_cod, per_cd, per_nombre1, per_nombre2, per_apellido1, per_apellido2, per_dir, per_tel, per_email, fechanac, edad, per_gen);
         this.cam_cod = cam_cod;
         this.sueldo = sueldo;
         this.tipolic = tipolic;
         this.aniosexperiencia = aniosexperiencia;
         this.estado = estado;
+    }
+
+    public Camionero(int per_cod, String per_cd, String per_nombre1, String per_nombre2, String per_apellido1, String per_apellido2, String per_dir, String per_tel, String per_email, String fechanac, int edad, String per_gen) {
+        super(per_cod, per_cd, per_nombre1, per_nombre2, per_apellido1, per_apellido2, per_dir, per_tel, per_email, fechanac, edad, per_gen);
     }
 
     public int getCam_cod() {

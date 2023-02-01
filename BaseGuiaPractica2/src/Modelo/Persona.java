@@ -18,13 +18,14 @@ public class Persona {
     private String per_dir;
     private String per_tel;
     private String per_email;
-    
+    private String fechanac; 
+    private int edad;
     private String per_gen;
 
     public Persona() {
     }
 
-    public Persona(int per_cod, String per_cd, String per_nombre1, String per_nombre2, String per_apellido1, String per_apellido2, String per_dir, String per_tel, String per_email, String per_gen) {
+    public Persona(int per_cod, String per_cd, String per_nombre1, String per_nombre2, String per_apellido1, String per_apellido2, String per_dir, String per_tel, String per_email, String fechanac, int edad, String per_gen) {
         this.per_cod = per_cod;
         this.per_cd = per_cd;
         this.per_nombre1 = per_nombre1;
@@ -34,8 +35,28 @@ public class Persona {
         this.per_dir = per_dir;
         this.per_tel = per_tel;
         this.per_email = per_email;
+        this.fechanac = fechanac;
+        this.edad = edad;
         this.per_gen = per_gen;
     }
+
+    public String getFechanac() {
+        return fechanac;
+    }
+
+    public void setFechanac(String fechanac) {
+        this.fechanac = fechanac;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    
 
     public int getPer_cod() {
         return per_cod;
